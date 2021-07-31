@@ -1,23 +1,65 @@
 part of 'pages.dart';
 
-class SignInPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController nameController = TextEditingController();
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
-    bool isLoading = false;
+
     return GeneralPage(
-      title: 'Sign In',
-      subtitle: 'Find your best ever meal',
-      onBackButtonPressed: () {},
+      title: 'Sign Up',
+      subtitle: 'Register and eat',
+      onBackButtonPressed: () {
+        Get.back();
+      },
       backColor: Colors.white,
       child: Column(
         children: [
+          Container(
+            width: 110,
+            height: 110,
+            margin: EdgeInsets.only(top: 26),
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage('assets/photo_border.png'))
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(image: AssetImage('assets/photo_avatar.png'), fit: BoxFit.cover)
+              ),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
+            child: Text(
+              'Full Name',
+              style: blackFontStyle2,
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Colors.black),
+            ),
+            child: TextField(
+              controller: nameController,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintStyle: greyFontStyle,
+                  hintText: 'Type your full name'),
+            ),
+          ),
           Container(
             width: double.infinity,
             margin: EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
@@ -71,41 +113,18 @@ class _SignInPageState extends State<SignInPage> {
               margin: EdgeInsets.only(top: 24),
               height: 45,
               padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-              child: isLoading
-                  ? SpinKitFadingCircle(size: 45, color: mainColor)
-                  : RaisedButton(
-                      onPressed: () {},
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      color: mainColor,
-                      child: Text('Sign In',
-                          style: GoogleFonts.poppins(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          )),
+              child: RaisedButton(
+                onPressed: () {},
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)),
+                color: mainColor,
+                child: Text('Continue',
+                    style: GoogleFonts.poppins(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
                     )),
-          Container(
-              width: double.infinity,
-              margin: EdgeInsets.only(top: 24),
-              height: 45,
-              padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-              child: isLoading
-                  ? SpinKitFadingCircle(size: 45, color: mainColor)
-                  : RaisedButton(
-                      onPressed: () {
-                        Get.to(SignUpPage());
-                      },
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      color: greyColor,
-                      child: Text('Create New Account',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          )),
-                    ))
+              )),
         ],
       ),
     );

@@ -34,14 +34,21 @@ class GeneralPage extends StatelessWidget {
                   child: Row(
                     children: [
                       onBackButtonPressed != null
-                          ? Container(
-                              width: 24,
-                              height: 24,
-                              margin: EdgeInsets.only(right: 26),
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/arrow_back.png'))))
+                          ? GestureDetector(
+                              onTap: () {
+                                if (onBackButtonPressed != null) {
+                                  onBackButtonPressed();
+                                }
+                              },
+                              child: Container(
+                                  width: 24,
+                                  height: 24,
+                                  margin: EdgeInsets.only(right: 26),
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/arrow_back.png')))),
+                            )
                           : SizedBox(),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +74,7 @@ class GeneralPage extends StatelessWidget {
                 width: double.infinity,
                 color: '#FAFAFC'.toColor(),
               ),
-                  child ?? SizedBox()
+              child ?? SizedBox()
             ]),
           ]),
         ),
