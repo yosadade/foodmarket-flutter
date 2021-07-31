@@ -10,7 +10,7 @@ class GeneralPage extends StatelessWidget {
   GeneralPage(
       {this.title = "Title",
       this.subtitle = "subtitle",
-      required this.onBackButtonPressed,
+      required this.onBackButtonPressed ,
       required this.child,
       required this.backColor});
 

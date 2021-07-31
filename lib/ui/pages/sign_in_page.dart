@@ -14,8 +14,8 @@ class _SignInPageState extends State<SignInPage> {
     return GeneralPage(
       title: 'Sign In',
       subtitle: 'Find your best ever meal',
-      onBackButtonPressed: () {},
       backColor: Colors.white,
+      onBackButtonPressed: () {},
       child: Column(
         children: [
           Container(
