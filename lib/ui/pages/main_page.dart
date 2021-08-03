@@ -26,9 +26,7 @@ class _MainPageState extends State<MainPage> {
               });
             },
             children: [
-            Center(
-              child: Text('Body Area'),
-            ),
+            FoodPage(),
             Center(
               child: Text('Order'),
             ),
