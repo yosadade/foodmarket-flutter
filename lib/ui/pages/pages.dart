@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:foodmarket/models/models.dart';
 import 'package:foodmarket/shared/shared.dart';
 import 'package:foodmarket/ui/widgets/widgets.dart';
 import 'package:get/state_manager.dart';
